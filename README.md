@@ -5,15 +5,16 @@ This project uses, as a base, some research conducted by a team of grad. student
 This DRETAD utitlizes the Naive Bayesian learning model on its dataset which assumes each **x** input column is independent of the others in its impact on **y**. 
 
 In a formula, we calculate
-*y = p(x1)p(x2)...p(xn) *
+*y = p(x1)p(x2)...p(xn)*
 where n is the number of input factors (x) affecting y.
 
 In the DRETAD work, **x1(Raw)** is derived from an English phrase’s length, such as “Where is the bathroom?”, “He is trying to speak”, or “more coffee, please.” The researchers were all fluent in distinct languages found in Google Translate (Russian, Telugu, Yoruba) and were able to manually identify the correct translation of English phrase to the language and the parts of the sentence that did not make sense.  
 > >The length of each sentence and the length of the part of each sentence that was translated incorrectly were both found and used to calculate a percentage of translation correctness, which we are using as our prediction result [y]. 
+
 >Rossikova et al., Research Presentation excerpt on *data collection*
 
 As an example, consider the phrase: **He is trying to speak.**
-When translated into Russian, this phrase translated (incorrectly) to **He is trying to say**, however the true translation was known, and thus the ratio of incorrect to correct sentence lengths was recorded.
+When translated into Russian, this phrase translated (incorrectly) from Eng to Rus back to Eng as **He is trying to say**. The true translation was known, and thus the ratio of incorrect to correct sentence lengths was recorded.
 
 Punctuation is stripped out of the phrase, and its length is taken and those are the values shown in **x1(Raw)**. To roughly classify these phrase lengths discretely, Rossikova et al. have divided the **x1(Raw)** by 10 and rounded them, in a process called discretization to arrive at **x1**. 
 
