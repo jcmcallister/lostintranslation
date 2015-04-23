@@ -76,6 +76,7 @@ public class UOKeanGUI extends JFrame {
                 {
                         public void actionPerformed(ActionEvent click)
                         {
+                        	System.out.println("Requesting translation of <phrase> which is " + textArea_1.getRows() + " long!");
                                 //Send Input to Google Translate
                                 //Display Output
                         }
