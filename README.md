@@ -1,4 +1,7 @@
-# Overview
+# Architecture (a WIP)
+[Click to see the Google Drawing](https://docs.google.com/drawings/d/13X_wAZOorlSdFSgjX0KcgrMbMpzUt2x5n9P7B8WBL5k/edit)
+
+# Project Overview
 
 This project uses, as a base, some research conducted by a team of grad. students at Kean University (Rossikova, Wuraola, et al.), where a **Discretized Russian-to-English Translator Accuracy Decider** (or DRETAD) was produced.
 
