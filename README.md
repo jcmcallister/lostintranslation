@@ -1,6 +1,12 @@
 # Architecture (a WIP)
 [Click to see the Google Drawing](https://docs.google.com/drawings/d/13X_wAZOorlSdFSgjX0KcgrMbMpzUt2x5n9P7B8WBL5k/edit)
 
+### Caveats
+
+This is a strict word-equality comparison, which leaves by the wayside much of the cultural context behind languages. The following declassified article from the mid 1980s outlines a lot of that cultural context & subtext:
+ 
+[Translating by the Seat of your Pants](https://www.nsa.gov/public_info/_files/cryptologic_quarterly/Translating_by_the_Seat_of_Your_Pants.pdf)
+
 # Project Overview
 
 This project uses, as a base, some research conducted by a team of grad. students at Kean University (Rossikova, Wuraola, et al.), where a **Discretized Russian-to-English Translator Accuracy Decider** (or DRETAD) was produced.
