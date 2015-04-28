@@ -48,7 +48,7 @@ public class UOKeanGUI extends JFrame {
                 setContentPane(contentPane);
                 contentPane.setLayout(null);
                
-                JTextArea textArea = new JTextArea();
+                final JTextArea textArea = new JTextArea();
                 textArea.setLineWrap(true);
                 textArea.setBounds(140, 38, 449, 134);
                 contentPane.add(textArea);
@@ -76,7 +76,7 @@ public class UOKeanGUI extends JFrame {
                 {
                         public void actionPerformed(ActionEvent click)
                         {
-                        	System.out.println("Requesting translation of <phrase> which is " + textArea_1.getRows() + " long!");
+                        	System.out.println("Requesting translation of <phrase> which is " + textArea.getText().length() + "characters long!");
                                 //Send Input to Google Translate
                                 //Display Output
                         }
