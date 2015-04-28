@@ -58,7 +58,7 @@ public class UOKeanGUI extends JFrame {
                 lblInput.setBounds(53, 62, 77, 79);
                 contentPane.add(lblInput);
                
-                JTextArea textArea_1 = new JTextArea();
+                final JTextArea textArea_1 = new JTextArea();
                 textArea_1.setLineWrap(true);
                 textArea_1.setBounds(140, 284, 449, 134);
                 contentPane.add(textArea_1);
