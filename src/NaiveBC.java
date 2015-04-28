@@ -1,22 +1,25 @@
-public Class NaiveBC implements DecisionModel<String>{
+public class NaiveBC implements DecisionModel<String>{
 	
-	public DataSample<String>[] trainingSet;
+	public DataRow trainingSet;
 	private Outcome<String> decision;
 
 	public NaiveBC(){
-		trainingSet = new DataSample<String>();
+		trainingSet = new DataRow();
 		decision = null;
 	}
 
-	public NaiveBC trainModel(DataSample<String>[] dataset){
+	public NaiveBC trainModel(DataRow[] dataset){
+		return null;
 
 	}
 
-	public NaiveBC trainModel(DataSample<String>[] dataset, int maxrows){
+	public NaiveBC trainModel(DataRow[] dataset, int maxrows){
+		return null;
 		
 	}
 
-	public Outcome<String> getDecision(NaiveBC model, DataSample<String>[] dataset){
+	public Outcome<String> getDecision(NaiveBC model, DataRow[] dataset){
+		return decision;
 
 	}
 
@@ -25,8 +28,17 @@ public Class NaiveBC implements DecisionModel<String>{
 		if(this.decision != null){
 			return this.decision;
 		}else{
-			System.out.println("You need to run getDecision() with a NaiveBC object and a dataset to generate a decision first!");
+			throw new RuntimeException("You need to run getDecision() with a NaiveBC object and a dataset to generate a decision first!");
+			//System.out.println();
+			//could be a throw
 		}
 	}
+
+	/*@Override
+	public Outcome<String> getDecision(DecisionModel m,
+			DataRow[] dataset) {
+		// TODO Auto-generated method stub
+		return null;
+	}*/
 	
 }
