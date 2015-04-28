@@ -8,7 +8,7 @@ public interface Outcome<T> {
 	
 	public void setValue(T input);//string input or whatever type you want
 	public void setValue(String input);//parse into desired structure from String?
-	public Outcome<T> getValue();
+	public T getValue();
 	
 	public String getLabel();//like "Correct" or "Incorrect"
 	public void setLabel(String label);
