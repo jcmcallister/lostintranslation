@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+
 //WARNING: this is really rough!!!
 
 public interface DecisionModel<E> {

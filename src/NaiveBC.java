@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class NaiveBC implements DecisionModel<String>{
 	
 	public DataRow trainingSet;
