@@ -3,7 +3,7 @@ import com.opencsv.CSVReader;
 
 public class DataRow implements DataSample<String> {
 
-	private String sample;
+	private String[] sample;
 	
 	@Override
 	public boolean setSample(String input) {
@@ -19,7 +19,9 @@ public class DataRow implements DataSample<String> {
 	}
 
 	@Override
-	public String getSample() { return sample; }
+	public String[] getSample() { return sample; }
+
+	public String getSampleColumn(int i){ return sample[i]; }
 
 	@Override
 	public String readSampleData(CSVReader csv) {

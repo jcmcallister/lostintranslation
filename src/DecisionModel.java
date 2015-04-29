@@ -18,8 +18,6 @@ public interface DecisionModel<E> {
 	
 	public DecisionModel trainModel(DataSample<E>[] dataset, int classifierColumn );//use the WHOLE set
 	
-	public DecisionModel trainModel(DataSample<E>[] dataset, int maxRows , int classifierColumn); //to use a part of a dataset
-	
 	public Outcome<E> getDecision(DataSample<E>[] dataset);//fires the Naive BC code, returns an outcome from a set of outcomes
 	
 	
