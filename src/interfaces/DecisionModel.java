@@ -1,3 +1,5 @@
+package interfaces;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -18,7 +20,7 @@ public interface DecisionModel<E> {
 	
 	public DecisionModel trainModel(DataSample<E>[] dataset, int classifierColumn );//use the WHOLE set
 	
-	public Outcome<E> getDecision(DataSample<E>[] dataset);//fires the Naive BC code, returns an outcome from a set of outcomes
+	public E getDecision(DataSample<E>[] dataset);//fires the Naive BC code, returns an outcome from a set of outcomes
 	
 	
 	//constructors + bean functions for Model, DataSample, Outcome?

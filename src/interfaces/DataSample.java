@@ -1,10 +1,15 @@
+package interfaces;
+
+import java.util.ArrayList;
+
 import com.opencsv.CSVReader;
 
 public interface DataSample<T> {
 	
 	//bean functions
 	public boolean setSample(T input);
-	public T getSample();
+	public ArrayList<T> getSample();
+	public T getSampleColumn(int i);
 	//needs more bean CRUD functions
 	
 	

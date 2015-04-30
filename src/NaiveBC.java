@@ -1,6 +1,9 @@
+import interfaces.DataSample;
+import interfaces.DecisionModel;
+
 import java.util.ArrayList;
 import java.util.HashMap;
-
+ 
 public class NaiveBC implements DecisionModel<String>{
 	
 	public DataRow trainingSet;
@@ -32,7 +35,7 @@ public class NaiveBC implements DecisionModel<String>{
 		return probDists;
 	}
 
-	public NaiveBC DERPtrainModel(DataRow[] dataset, int classifierColumn){
+	/*public NaiveBC DERPtrainModel(DataRow[] dataset, int classifierColumn){
 		//loop over dataset
 			//for each row's cell, record a count of each occurrence of the values 
 			//separate into different buckets (or Outcome<String> instances) depending on the column that is the classifier (default, this is the last column)
@@ -43,11 +46,11 @@ public class NaiveBC implements DecisionModel<String>{
 		//ArrayList<String> bucketLabels = new ArrayList<String>();
 
 		String classModel = "ends";//can also be "match" or "divide"
-		/* Class Models
-			'ends'	:	classifiers match the end values, and go in between (good for a range of deterministic values)
-			'match'	:	classifiers match the column values exactly (good for strings!)
-			'divide':	classifiers evenly divide up the values over the input range
-		*/
+		// Class Models
+			//'ends'	:	classifiers match the end values, and go in between (good for a range of deterministic values)
+			//'match'	:	classifiers match the column values exactly (good for strings!)
+			//'divide':	classifiers evenly divide up the values over the input range
+		
 		int classDivisions = 0;//applicable only when classModel == "divide"
 
 		//Step 1: Get all distinct Bucket values
@@ -92,7 +95,7 @@ public class NaiveBC implements DecisionModel<String>{
 		}
 
 		return null;
-	}
+	}*/
 
 
 	public void trainModel(DataRow[] dataset, int classifierColumn){
@@ -106,12 +109,14 @@ public class NaiveBC implements DecisionModel<String>{
 
 		for(int i=0;i<dataset.length; i++){
 
-			String[] row = dataset[i];
+			DataRow row = dataset[i];
 
-			if(levels.containsKey( row[classifierColumn] ) == false){
-				levels.put( row[classifierColumn], (new ArrayList<Integer>()).add(i) );
+			String thisLevel = row.getSampleColumn(classifierColumn);
+			
+			if(levels.containsKey( thisLevel ) == false){
+				levels.put( thisLevel, (new ArrayList<Integer>()).add(i) );
 			}else{
-				levels.get( row[classifierColumn] ).add(i);
+				levels.get( thisLevel ).add(i);
 			}
 
 			for(int j=0; j< row.length; j++){
@@ -135,12 +140,15 @@ public class NaiveBC implements DecisionModel<String>{
 		return null;
 	}
 
-
-	public Outcome<String> getDecision(DataRow[] sampleset){
-		return decision;
+	@Override
+	public DecisionModel trainModel(DataSample<String>[] dataset,
+			int classifierColumn) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
-	public Outcome<String> getDecision(){
+	@Override
+	public String getDecision(DataSample<String>[] dataset) {
 		//check if decision != null
 		if(this.decision != null){
 			return this.decision;

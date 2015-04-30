@@ -1,3 +1,5 @@
+import interfaces.Outcome;
+
 
 public class Classifier implements Outcome<Double> {
 
