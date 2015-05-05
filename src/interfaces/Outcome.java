@@ -1,3 +1,4 @@
+package interfaces;
 
 public interface Outcome<T> {
 
