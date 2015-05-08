@@ -21,8 +21,8 @@ public class GooglerExample {
 		//Alternatively could set language this way:
 		//translator.setLanguage("en");
 		
-		//Let's find the Yandex query results:
-		int query = translator.getQuery(translation);
+		//Let's find the Yandex query results: CHANGE "thorrism" to YOUR ACCOUNT
+		int query = translator.getQuery(translation, "thorrism");
 		System.out.println(translation + " has: " + query
 				+ " results on Yandex!");
 	}
