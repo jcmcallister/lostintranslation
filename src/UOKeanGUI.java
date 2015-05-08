@@ -1,4 +1,4 @@
-import java.awt.BorderLayout;
+package cis423;
 import java.awt.EventQueue;
  
 import javax.swing.JFrame;
@@ -12,15 +12,22 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
  
-import javax.swing.JButton;
+import javax.swing.JButton; 
 import javax.swing.JTable;
- 
+
+import com.googler.Translator;
  
 public class UOKeanGUI extends JFrame {
  
         private JPanel contentPane;
         private JTable table;
- 
+        private Translator translator;
+                
+        private String input;
+        private String translation;
+        private String retranslation;
+        private String output;
+        
         /**
          * Launch the application.
          */
@@ -48,20 +55,20 @@ public class UOKeanGUI extends JFrame {
                 setContentPane(contentPane);
                 contentPane.setLayout(null);
                
-                final JTextArea textArea = new JTextArea();
-                textArea.setLineWrap(true);
-                textArea.setBounds(140, 38, 449, 134);
-                contentPane.add(textArea);
+                JTextArea inputTextArea = new JTextArea();
+                inputTextArea.setLineWrap(true);
+                inputTextArea.setBounds(140, 38, 449, 134);
+                contentPane.add(inputTextArea);
                
                 JLabel lblInput = new JLabel("Input:");
                 lblInput.setFont(new Font("Tahoma", Font.PLAIN, 18));
                 lblInput.setBounds(53, 62, 77, 79);
                 contentPane.add(lblInput);
                
-                final JTextArea textArea_1 = new JTextArea();
-                textArea_1.setLineWrap(true);
-                textArea_1.setBounds(140, 284, 449, 134);
-                contentPane.add(textArea_1);
+                JTextArea outputTextArea = new JTextArea();
+                outputTextArea.setLineWrap(true);
+                outputTextArea.setBounds(140, 284, 449, 134);
+                contentPane.add(outputTextArea);
                
                 JLabel lblOutput = new JLabel("Output:");
                 lblOutput.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -71,12 +78,47 @@ public class UOKeanGUI extends JFrame {
                 JButton btnNewButton = new JButton("Translate");
                 btnNewButton.setBounds(140, 198, 449, 63);
                 contentPane.add(btnNewButton);
-               
+                /*
+                //
+                //Create a new translator for translating to russian
+		Translator translator1 = new Translator("ru");
+		
+		//Alternatively could set language this way:
+		translator1.setLanguage("ru");
+		
+		//Translate a String english => russian
+		String input1 = "dog";
+		String translation1 = translator1.getTranslation(input1);
+		System.out.println(translation1);
+		
+		//Translator a String russian => english (again must set language to a new one)
+		translation1 = translator1.getTranslation(translation1, "en");
+		System.out.println(translation1);
+		//Alternatively could set language this way:
+		//translator.setLanguage("en");
+		
+		//Let's find the Yandex query results:
+		//int query = translator.getQuery(translation);
+		//System.out.println(translation + " has: " + query + " results on Yandex!");
+                //
+                */
+
+                
                 btnNewButton.addActionListener(new ActionListener()
                 {
                         public void actionPerformed(ActionEvent click)
                         {
-                        	System.out.println("Requesting translation of <phrase> which is " + textArea.getText().length() + "characters long!");
+                                translator = new Translator("ru");
+                                translator.setLanguage("ru");
+                                input = inputTextArea.getText();
+                                translation = translator.getTranslation(input);
+                                retranslation = translator.getTranslation(translation, "en");
+                                
+                                System.out.println(input);
+                                System.out.println(translation);
+                                outputTextArea.setText(translation);
+                                //int query = translator.getQuery(translation);
+                                repaint();
                                 //Send Input to Google Translate
                                 //Display Output
                         }
