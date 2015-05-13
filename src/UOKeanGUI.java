@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cis423;
 
 import java.awt.EventQueue;
@@ -31,27 +26,30 @@ public class UOKeanGUI extends JFrame {
     private JPanel contentPane;
     private JTable table;
     private Translator translator;
-    private ImageIcon icon;// = new ImageIcon("src/img/spinner.gif");
-    private JLabel iconLabel;// = new JLabel(icon);
+    private ImageIcon icon;
+    private JLabel iconLabel;
     
     private String input;
     private String translation;
     private String retranslation;
-    //private String output;
-    //private String langSelected;
     private String[] langs = { "en", "ru", "es" };
     private SpinnerThread sThread;
     
     /**
      * Launch the application.
      */
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
+    public static void main(String[] args)
+    {
+        EventQueue.invokeLater(new Runnable()
+        {
+            public void run()
+            {
+                try
+                {
                     UOKeanGUI frame = new UOKeanGUI();
                     frame.setVisible(true);
-                } catch (Exception e) {
+                } catch (Exception e)
+                {
                     e.printStackTrace();
                 }
             }
@@ -61,7 +59,8 @@ public class UOKeanGUI extends JFrame {
     /**
      * Create the frame.
      */
-    public UOKeanGUI() {
+    public UOKeanGUI()
+    {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 900, 500);
         contentPane = new JPanel();
@@ -72,8 +71,6 @@ public class UOKeanGUI extends JFrame {
         
         icon = new ImageIcon("src/img/spinner.gif");
         iconLabel = new JLabel(icon);
-        //JLabel iconLabel = new JLabel("TEXT");
-        //iconLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
         iconLabel.setBounds(48, 200, 52, 52);
         contentPane.add(iconLabel);
         iconLabel.setVisible(false);
@@ -93,7 +90,7 @@ public class UOKeanGUI extends JFrame {
         outputTextArea.setBounds(140, 284, 449, 134);
         contentPane.add(outputTextArea);
         
-        JComboBox<String> langSelector = new JComboBox<>(langs); //added this
+        JComboBox<String> langSelector = new JComboBox<>(langs);
         langSelector.setFont(new Font("Tahoma", Font.PLAIN, 18));
         langSelector.setBounds(42, 317, 77, 79);
         contentPane.add(langSelector);
@@ -137,20 +134,10 @@ public class UOKeanGUI extends JFrame {
                                               {
             public void actionPerformed(ActionEvent click)
             {
-                
-                //iconGenerator();
                 iconLabel.setVisible(true);
-                //sThread = new SpinnerThread("Spinner Thread", iconLabel);
-                //sThread.start();
                 translator = new Translator(langSelector.getSelectedItem().toString());
                 translator.setLanguage(langSelector.getSelectedItem().toString());
                 input = inputTextArea.getText();
-                //translation = translator.getTranslation(input);
-                //retranslation = translator.getTranslation(translation, "en"); //not sure what do do here
-                
-                
-                //int query = translator.getQuery(translation);
-                //iconLabel.setVisible(false);
                 new TranslationWorker(input,outputTextArea,iconLabel).execute();
                 repaint();
                 //Send Input to Google Translate
@@ -169,48 +156,53 @@ public class UOKeanGUI extends JFrame {
         contentPane.add(lblMeaningfulInformation);
     }
     
-    public void iconGenerator(){
+    public void iconGenerator()
+    {
         icon = new ImageIcon("src/img/spinner.gif");
         iconLabel = new JLabel(icon);
-        //JLabel iconLabel = new JLabel("TEXT");
-        //iconLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
         iconLabel.setBounds(48, 200, 52, 52);
         contentPane.add(iconLabel);
         repaint();
         iconLabel.setVisible(false);
     }
-private class TranslationWorker extends SwingWorker <String, Void>{
+    private class TranslationWorker extends SwingWorker <String, Void>
+    {
     
-    private String input;
-    private JTextArea ta;
-    private JLabel spin;
+        private String input;
+        private JTextArea ta;
+        private JLabel spin;
     
-    public TranslationWorker(String input, JTextArea ta, JLabel spin){
-        this.input = input;
-        this.ta = ta;
-        this.spin = spin;
-    }
-    
-    @Override
-    public String doInBackground(){
-        translation = translator.getTranslation(input);
-        retranslation = translator.getTranslation(translation);
-        return retranslation;
-    }
-    
-    @Override
-    protected void done(){
-        try{
-        ta.setText(get());
-        spin.setVisible(false);
+        public TranslationWorker(String input, JTextArea ta, JLabel spin)
+        {
+            this.input = input;
+            this.ta = ta;
+            this.spin = spin;
         }
-        catch(Exception e){
-            
+    
+        @Override
+        public String doInBackground()
+        {
+            translation = translator.getTranslation(input);
+            retranslation = translator.getTranslation(translation);
+            return retranslation;
         }
+    
+        @Override
+        protected void done()
+        {
+            try
+            {
+                ta.setText(get());
+                spin.setVisible(false);
+            }
+            catch(Exception e)
+            {
+                //exception
+            }
         
-    }
+        }
     
-}
+    }
     
 }
 
