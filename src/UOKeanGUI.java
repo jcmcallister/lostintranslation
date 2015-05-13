@@ -33,7 +33,6 @@ public class UOKeanGUI extends JFrame {
     private String translation;
     private String retranslation;
     private String[] langs = { "en", "ru", "es" };
-    private SpinnerThread sThread;
     
     /**
      * Launch the application.
