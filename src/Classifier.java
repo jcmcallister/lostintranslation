@@ -10,39 +10,55 @@ public class Classifier implements Outcome<Double> {
 	
 	
 	@Override
-	public String toString(Outcome<Double> obj) {
-		// TODO Auto-generated method stub
-		return null;
+	public String toString() {
+		return getValue() + getLabel();
 	}
 
 	@Override
 	public void setValue(Double input) {
-		// TODO Auto-generated method stub
-
+		this.value = input;
 	}
 
+	
 	@Override
-	public void setValue(String input) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public Double getValue() {
-		// TODO Auto-generated method stub
-		return null;
+	public Double[] getValue() {
+		// returns an array. if there's a single value, the returned array has length 1.
+		// if a range of values, returned array has length 2.
+		
+		boolean valuesWithRange = (this.value == null);
+		int arrayLen = 1;
+		Double[] result;
+		
+		if(valuesWithRange){
+			arrayLen++;
+			result = new Double[arrayLen];
+			result[0] = this.minValue;
+			result[1] = this.maxValue;
+		}else{
+			result = new Double[arrayLen];
+			result[0] = this.value;
+		}
+		
+		return result;
 	}
 
 	@Override
 	public String getLabel() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.label;
 	}
 
 	@Override
-	public void setLabel(String label) {
+	public void setLabel(String lbl) {
 		// TODO Auto-generated method stub
-
+		this.label = lbl;
+	}
+	
+	public Double getMinValue(){
+		return this.minValue;
+	}
+	
+	public Double getMaxValue(){
+		return this.maxValue;
 	}
 
 }

@@ -1,3 +1,4 @@
+package interfaces;
 import com.googler.Translator;
 
 
@@ -13,17 +14,17 @@ public class GooglerExample {
 		
 		//Translate a String english => russian
 		String input = "hello!";
-		String translation = translator.getTranslation(input);
+		String translation = impl.getTranslation(input);
 		System.out.println(translation);
 		
 		//Translator a String russian => english (again must set language to a new one)
-		translation = translator.getTranslation(translation, "en");
+		translation = impl.getTranslation(translation, "en");
 		System.out.println(translation);
 		//Alternatively could set language this way:
 		//translator.setLanguage("en");
 		
 		//Let's find the Yandex query results: CHANGE "thorrism" to YOUR ACCOUNT
-		int query = translator.getQuery(translation);
+		int query = impl.getQuery(translation);
 		System.out.println(translation + " has: " + query
 				+ " results on Yandex!");
 	}

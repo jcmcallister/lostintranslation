@@ -5,11 +5,11 @@ public interface Outcome<T> {
 		//Outcomes are the DecisionClasses, and in our case should be in this set :
 		//		{ Correct (y==0), Incorrect (y==1), or Partially Correct (0>y>1) }
 	
-	public String toString(Outcome<T> obj);
+	public String toString();
 	
 	public void setValue(T input);//string input or whatever type you want
-	public void setValue(String input);//parse into desired structure from String?
-	public T getValue();
+	//public void setValue(String input);//parse into desired structure from String?
+	public T[] getValue();
 	
 	public String getLabel();//like "Correct" or "Incorrect"
 	public void setLabel(String label);
