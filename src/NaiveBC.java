@@ -114,7 +114,7 @@ public class NaiveBC implements DecisionModel<String>{
 			String thisLevel = row.getSampleColumn(classifierColumn);
 			
 			if(levels.containsKey( thisLevel ) == false){
-				levels.put( thisLevel, (new ArrayList<Integer>()).add(i) );
+				levels.put( thisLevel, ArrayList<Integer>().add(i) );
 			}else{
 				levels.get( thisLevel ).add(i);
 			}

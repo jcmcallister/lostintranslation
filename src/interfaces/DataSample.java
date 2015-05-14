@@ -14,6 +14,6 @@ public interface DataSample<T> {
 	
 	
 	//actual good stuff
-	public T readSampleData(CSVReader csv); 
+	//public T readSampleData(CSVReader csv); //moved to Controller, no interface method needed
 	
 }

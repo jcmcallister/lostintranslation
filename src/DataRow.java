@@ -1,8 +1,5 @@
 import java.util.ArrayList;
-
 import interfaces.DataSample;
-
-import com.opencsv.CSVReader;
 
 
 public class DataRow implements DataSample<String> {
@@ -46,12 +43,6 @@ public class DataRow implements DataSample<String> {
 
 	public String getSampleColumn(int i){ return sample.get(i); }
 
-	@Override
-	public String readSampleData(CSVReader csv) {
-		// TODO use CSVReader to read a given csv object
-		//this method may not belong here... could be better served in Controller.main()?
-		return null;
-	}
 	
 	
 

@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 import interfaces.Outcome;
 
 
@@ -7,6 +9,7 @@ public class Classifier implements Outcome<Double> {
 	private Double minValue;
 	private Double maxValue;
 	private String label;
+	private ArrayList<Integer> rowIndices;
 	
 	
 	@Override
@@ -19,7 +22,6 @@ public class Classifier implements Outcome<Double> {
 		this.value = input;
 	}
 
-	
 	@Override
 	public Double[] getValue() {
 		// returns an array. if there's a single value, the returned array has length 1.
@@ -61,4 +63,24 @@ public class Classifier implements Outcome<Double> {
 		return this.maxValue;
 	}
 
+	public ArrayList<Integer> getRowIndices() {
+		return rowIndices;
+	}
+
+	public void setRowIndices(ArrayList<Integer> rowIndices) {
+		this.rowIndices = rowIndices;
+	}
+	
+	public void addRowIndex(Integer i){
+		this.rowIndices.add(i);
+	}
+
+	public boolean removeRowIndex(Integer i){
+		boolean res = false;
+		if(this.rowIndices.contains(i)){
+			res = this.rowIndices.remove(i);
+		}
+		return res;
+	}
+	
 }
