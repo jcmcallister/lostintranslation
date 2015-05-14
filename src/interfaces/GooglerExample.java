@@ -7,7 +7,7 @@ public class GooglerExample {
 	public static void main(String[] args){
 		//Create a new translator for translating to russian
 		//	Translator impl = new Translator("ru"); IF YOU DONT HAVE ACCT INFO
-		Translator impl = new Translator("thorrism", "03.315902810:cfeda0c0b0a70c46080a34ffa9e3cea5", "ru");
+		Translator impl = new Translator("jcmcallister", "03.316746141:7fd1f25456fe5a4d6e318064528967b8", "ru");
 		
 		//Alternatively could set language this way:
 		//translator.setLanguage("ru");
